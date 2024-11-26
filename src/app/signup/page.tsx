@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 
 const SignupPage = () => {
   const router = useRouter();
@@ -23,6 +23,7 @@ const SignupPage = () => {
 
       const response = await axios.post("/api/users/signup", user);
       console.log("Sign up success", response.data);
+      toast.success("Login successfully!!!")
       router.push("/login");
     } catch (err: any) {
       console.log(err.message);
